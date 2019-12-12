@@ -21,89 +21,90 @@ public class JavaFXHello extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        Button button = new Button();
-        button.setText("click me");
+        RLE rle = new RLE();
 
-        button.setOnAction(actionEvent -> System.out.println("Clicked"));
-        button.setLayoutX(200);
-        Button buttonWindow = new Button();
-        buttonWindow.setText("Open Dialog box");
-        buttonWindow.setLayoutX(100);
-        buttonWindow.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                Stage stage = new Stage();
-                stage.setTitle("Dialog box");
-                stage.setScene(new Scene(new StackPane(new Label("message"))));
-                stage.initOwner(primaryStage);
-                stage.initModality(Modality.WINDOW_MODAL);
-                stage.setMinWidth(200);
-                stage.setMinHeight(200);
-                stage.show();
-            }
-        });
+//        Button button = new Button();
+//        button.setText("click me");
+//
+//        button.setOnAction(actionEvent -> System.out.println("Clicked"));
+//        button.setLayoutX(200);
+//        Button buttonWindow = new Button();
+//        buttonWindow.setText("Open Dialog box");
+//        buttonWindow.setLayoutX(100);
+//        buttonWindow.setOnAction(new EventHandler<ActionEvent>() {
+//            @Override
+//            public void handle(ActionEvent actionEvent) {
+//                Stage stage = new Stage();
+//                stage.setTitle("Dialog box");
+//                stage.setScene(new Scene(new StackPane(new Label("message"))));
+//                stage.initOwner(primaryStage);
+//                stage.initModality(Modality.WINDOW_MODAL);
+//                stage.setMinWidth(200);
+//                stage.setMinHeight(200);
+//                stage.show();
+//            }
+//        });
 
         try {
             BorderPane root = new BorderPane();
-            Image image = new Image(getClass().getResourceAsStream("lenna256px.png"));
-            ImageView imageView = new ImageView(image);
 
-            Label label = new Label("Hello World");
-            label.setLayoutX(0);
-            label.setLayoutY(120);
-            Label label2 = new Label("nr 1");
-            Label label3 = new Label("nr 2");
-            VBox left_vbox = new VBox(10);
-            left_vbox.getChildren().add(label2);
-            left_vbox.getChildren().add(label3);
-            root.setBottom(button);
-            root.setBottom(buttonWindow);
-            root.setLeft(left_vbox);
+//            Label label = new Label("Hello World");
+//            label.setLayoutX(0);
+//            label.setLayoutY(120);
+//            Label label2 = new Label("nr 1");
+//            Label label3 = new Label("nr 2");
+//            left_vbox.getChildren().add(label2);
+//            left_vbox.getChildren().add(label3);
+//            root.setBottom(button);
+//            root.setBottom(buttonWindow);
 
-            //============================================
+            //============================================ Right
 
-            RadioButton radio1 = new RadioButton("1");
-            radio1.setUserData("przycisk 1");
-            RadioButton radio2 = new RadioButton("2");
-            radio2.setUserData("przycisk 2");
-            RadioButton radio3 = new RadioButton("3");
-            radio3.setUserData("przycisk 3");
+            Label toggleLabel = new Label("Operacja:");
+            toggleLabel.setLayoutY(200);
+            RadioButton radioCoding = new RadioButton("Kodowanie:");
+            RadioButton radioDecoding = new RadioButton("Dekodowanie:");
 
             ToggleGroup toggleGroup = new ToggleGroup();
-            radio1.setToggleGroup(toggleGroup);
-            radio2.setToggleGroup(toggleGroup);
-            radio3.setToggleGroup(toggleGroup);
+            radioCoding.setToggleGroup(toggleGroup);
+            radioDecoding.setToggleGroup(toggleGroup);
 
-            HBox bottomHbox = new HBox(10);
-            bottomHbox.getChildren().addAll(radio1, radio2, radio3);
-            root.setBottom(bottomHbox);
-
+            VBox bottomHbox = new VBox(10);
+            bottomHbox.getChildren().addAll(toggleLabel, radioCoding, radioDecoding);
+            root.setRight(bottomHbox);
 
 
-            //==============
-            TextField textField = new TextField();
-            TextField textField2 = new TextField();
-            textField2.setLayoutY(60);
+
+
+            //============== Center
+            Label label = new Label("Źródło:");
+            label.setLayoutY(-25);
+            Label label2 = new Label("Wynik operacji:");
+            label2.setLayoutY(35);
+            label.setLayoutY(-25);
+            TextField sourceText = new TextField();
+            Button buttonCopy = new Button("Kopiuj");
+            buttonCopy.setLayoutY(30);
+            buttonCopy.setLayoutX(100);
+            TextField resultText = new TextField();
+            Button buttonExecute = new Button("Wykonaj");
+            resultText.setLayoutY(60);
+            buttonExecute.setLayoutY(110);
             Group center_group = new Group();
-            center_group.getChildren().add(imageView);
-            center_group.getChildren().addAll(label, textField2, textField);
-
-            //=============================================
-            Button button1 = new Button("Kliknij mnie!");
-            button1.getStyleClass().add("my-field");
-            Button button2 = new Button("Nr 2");
-            button2.getStyleClass().add("my-button");
-            Button button3 = new Button( "Nr 3");
-            HBox hBox = new HBox(10);
-            hBox.getChildren().addAll(button1, button2, button3);
-
-
-
+            center_group.getChildren().addAll(label, sourceText, label2, buttonCopy, resultText, buttonExecute);
             root.setCenter(center_group);
-            root.setTop(hBox);
+            //=============================================
+
+//            HBox hBox = new HBox(10);
+//            hBox.getChildren().addAll(button1, button2);
+
+
+
+
+//            root.setTop(hBox);
             //=========================================
 
-            button3.setOnAction(actionEvent -> {
+//            button3.setOnAction(actionEvent -> {
 //                if(radio1.isSelected()){
 //                    System.out.println("Radio 1");
 //                } else if(toggleGroup.getSelectedToggle().equals(radio2)){
@@ -111,42 +112,51 @@ public class JavaFXHello extends Application {
 //                } else {
 //                    System.out.println("Radio 3");
 //                }
-
-                if(textField.getText().matches("^[JA|BD|DS][0-9]{2}[LZlz][0-9]{2}[a-z]")){
-                    System.out.println("Matches");
-                } else {
-                    System.out.println("not matches");
-                }
-
-            });
+//
+//                if(textField.getText().matches("^[JA|BD|DS][0-9]{2}[LZlz][0-9]{2}[a-z]")){
+//                    System.out.println("Matches");
+//                } else {
+//                    System.out.println("not matches");
+//                }
+//
+//            });
 
 
             //===========================================================
-            button2.setOnAction(actionEvent -> { System.out.println("Przycisk 2");
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "ojaciepanie co sie stao");
-                Optional<ButtonType> result = alert.showAndWait();
-                if(result.isPresent() && result.get() == ButtonType.OK){
-                    System.out.println("OK");
+//            button2.setOnAction(actionEvent -> { System.out.println("Przycisk 2");
+//                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "ojaciepanie co sie stao");
+//                Optional<ButtonType> result = alert.showAndWait();
+//                if(result.isPresent() && result.get() == ButtonType.OK){
+//                    System.out.println("OK");
+//                }
+////            alert.show();
+//
+//            });
+
+            buttonExecute.setOnAction(actionEvent -> {
+                String result = "";
+
+                if(radioCoding.isSelected()) {
+                    result = rle.encode(sourceText.getText());
+                } else if (radioDecoding.isSelected()){
+                    result = rle.decode(sourceText.getText());
+                } else {
+                    Stage stage = new Stage();
+                    stage.setTitle("Błąd!");
+                    BorderPane borderPane = new BorderPane();
+                    stage.setScene(new Scene(borderPane,300,100));
+                    Label msg = new Label("Wybierz operacje!");
+                    borderPane.setCenter(msg);
+                    stage.initOwner(primaryStage);
+                    stage.initModality(Modality.WINDOW_MODAL);
+                    stage.show();
                 }
-//            alert.show();
 
             });
 
-            button1.setOnAction(actionEvent -> {
-                System.out.println("Przycisk 1");
-                Stage stage = new Stage();
-                stage.setTitle("Okno dial");
-                BorderPane borderPane = new BorderPane();
-                stage.setScene(new Scene(borderPane,300,100));
-                Label msg = new Label("To jest okno dial");
-                borderPane.setCenter(msg);
-                stage.initOwner(primaryStage);
-                stage.initModality(Modality.WINDOW_MODAL);
-                stage.show();
-            });
-            Scene scene = new Scene(root, 400, 400);
+            Scene scene = new Scene(root, 400, 300);
           scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-          primaryStage.setTitle("Hello World");
+          primaryStage.setTitle("Run Length Encoding");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (Exception e){

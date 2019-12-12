@@ -1,11 +1,6 @@
 .my-field{
--fx-background-color:yellow;
+-fx-background-color:white;
 -fx-text-fill: red;
 -fx-pref-width: 130px;
 }
 
-.my-button{
--fx-background-color:cyan;
--fx-border-style:dashed;
--fx-border-width:5px;
--fx-font:bold 15 pt 'sans-serif';}
