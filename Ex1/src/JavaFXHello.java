@@ -62,7 +62,7 @@ public class JavaFXHello extends Application {
             root.setCenter(center_group);
 
 
-            //===========================================================
+            //============================================= Events
 
             buttonCopy.setOnAction(actionEvent -> {
                 sourceText.setText(resultText.getText());
@@ -86,10 +86,10 @@ public class JavaFXHello extends Application {
                     stage.initModality(Modality.WINDOW_MODAL);
                     stage.show();
                 }
-
                 resultText.setText(result);
-
             });
+
+            //============================= Scene init
 
             Scene scene = new Scene(root, 400, 300);
           scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
