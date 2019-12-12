@@ -20,43 +20,10 @@ public class JavaFXHello extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
         RLE rle = new RLE();
-
-//        Button button = new Button();
-//        button.setText("click me");
-//
-//        button.setOnAction(actionEvent -> System.out.println("Clicked"));
-//        button.setLayoutX(200);
-//        Button buttonWindow = new Button();
-//        buttonWindow.setText("Open Dialog box");
-//        buttonWindow.setLayoutX(100);
-//        buttonWindow.setOnAction(new EventHandler<ActionEvent>() {
-//            @Override
-//            public void handle(ActionEvent actionEvent) {
-//                Stage stage = new Stage();
-//                stage.setTitle("Dialog box");
-//                stage.setScene(new Scene(new StackPane(new Label("message"))));
-//                stage.initOwner(primaryStage);
-//                stage.initModality(Modality.WINDOW_MODAL);
-//                stage.setMinWidth(200);
-//                stage.setMinHeight(200);
-//                stage.show();
-//            }
-//        });
 
         try {
             BorderPane root = new BorderPane();
-
-//            Label label = new Label("Hello World");
-//            label.setLayoutX(0);
-//            label.setLayoutY(120);
-//            Label label2 = new Label("nr 1");
-//            Label label3 = new Label("nr 2");
-//            left_vbox.getChildren().add(label2);
-//            left_vbox.getChildren().add(label3);
-//            root.setBottom(button);
-//            root.setBottom(buttonWindow);
 
             //============================================ Right
 
@@ -93,45 +60,13 @@ public class JavaFXHello extends Application {
             Group center_group = new Group();
             center_group.getChildren().addAll(label, sourceText, label2, buttonCopy, resultText, buttonExecute);
             root.setCenter(center_group);
-            //=============================================
-
-//            HBox hBox = new HBox(10);
-//            hBox.getChildren().addAll(button1, button2);
-
-
-
-
-//            root.setTop(hBox);
-            //=========================================
-
-//            button3.setOnAction(actionEvent -> {
-//                if(radio1.isSelected()){
-//                    System.out.println("Radio 1");
-//                } else if(toggleGroup.getSelectedToggle().equals(radio2)){
-//                    System.out.println("Radio 2");
-//                } else {
-//                    System.out.println("Radio 3");
-//                }
-//
-//                if(textField.getText().matches("^[JA|BD|DS][0-9]{2}[LZlz][0-9]{2}[a-z]")){
-//                    System.out.println("Matches");
-//                } else {
-//                    System.out.println("not matches");
-//                }
-//
-//            });
 
 
             //===========================================================
-//            button2.setOnAction(actionEvent -> { System.out.println("Przycisk 2");
-//                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "ojaciepanie co sie stao");
-//                Optional<ButtonType> result = alert.showAndWait();
-//                if(result.isPresent() && result.get() == ButtonType.OK){
-//                    System.out.println("OK");
-//                }
-////            alert.show();
-//
-//            });
+
+            buttonCopy.setOnAction(actionEvent -> {
+                sourceText.setText(resultText.getText());
+            });
 
             buttonExecute.setOnAction(actionEvent -> {
                 String result = "";
@@ -151,6 +86,8 @@ public class JavaFXHello extends Application {
                     stage.initModality(Modality.WINDOW_MODAL);
                     stage.show();
                 }
+
+                resultText.setText(result);
 
             });
 
