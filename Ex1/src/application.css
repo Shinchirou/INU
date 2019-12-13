@@ -1,6 +1,13 @@
-.my-field{
--fx-background-color:white;
--fx-text-fill: red;
--fx-pref-width: 130px;
+.my-button {
+    -fx-border-color: black;
+    -fx-pref-width: 70px;
+    -fx-border-style: round;
 }
+
+
+.text-field {
+    -fx-border-color: black;
+    -fx-pref-width: 200px;
+}
+
 

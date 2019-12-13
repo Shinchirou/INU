@@ -29,13 +29,12 @@ public class JavaFXHello extends Application {
 
             Label toggleLabel = new Label("Operacja:");
             toggleLabel.setLayoutY(200);
-            RadioButton radioCoding = new RadioButton("Kodowanie:");
-            RadioButton radioDecoding = new RadioButton("Dekodowanie:");
-
+            RadioButton radioCoding = new RadioButton("kodowanie ");
+            RadioButton radioDecoding = new RadioButton("dekodowanie ");
+            radioCoding.setSelected(true);
             ToggleGroup toggleGroup = new ToggleGroup();
             radioCoding.setToggleGroup(toggleGroup);
             radioDecoding.setToggleGroup(toggleGroup);
-
             VBox bottomHbox = new VBox(10);
             bottomHbox.getChildren().addAll(toggleLabel, radioCoding, radioDecoding);
             root.setRight(bottomHbox);
@@ -50,14 +49,18 @@ public class JavaFXHello extends Application {
             label2.setLayoutY(35);
             label.setLayoutY(-25);
             TextField sourceText = new TextField();
+            sourceText.getStyleClass().add("text-field");
             Button buttonCopy = new Button("Kopiuj");
+
             buttonCopy.setLayoutY(30);
-            buttonCopy.setLayoutX(100);
+            buttonCopy.setLayoutX(130);
             TextField resultText = new TextField();
             Button buttonExecute = new Button("Wykonaj");
             resultText.setLayoutY(60);
-            buttonExecute.setLayoutY(110);
+            buttonExecute.setLayoutY(130);
             Group center_group = new Group();
+            buttonCopy.getStyleClass().add("my-button");
+            buttonExecute.getStyleClass().add("my-button");
             center_group.getChildren().addAll(label, sourceText, label2, buttonCopy, resultText, buttonExecute);
             root.setCenter(center_group);
 
@@ -91,7 +94,7 @@ public class JavaFXHello extends Application {
 
             //============================= Scene init
 
-            Scene scene = new Scene(root, 400, 300);
+            Scene scene = new Scene(root, 400, 220);
           scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
           primaryStage.setTitle("Run Length Encoding");
             primaryStage.setScene(scene);

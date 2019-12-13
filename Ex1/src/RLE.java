@@ -11,6 +11,7 @@ public class RLE {
         char previous = ' ';
         int counter = 1;
         String result = "";
+
         for (int i = 0; i < plainText.length(); i++) {
             char c = plainText.charAt(i);
             if (previous == ' ') {
@@ -26,16 +27,26 @@ public class RLE {
             if (i == plainText.length() - 1) {
                 result += "" + previous + counter;
             }
-
         }
-
         return result;
     }
 
 
     String decode(String encodedText) {
 
-        return "";
+        String[] dividedText = encodedText.split(",");
+        System.out.println(dividedText[0]);
+        StringBuilder sb = new StringBuilder();
+
+
+        for(String s : dividedText){
+            int counter = Character.getNumericValue(s.charAt(1));
+            for (int j = 0; j < counter; j++){
+            sb.append(s.charAt(0));
+            }
+        }
+
+        return sb.toString();
 
     }
 
