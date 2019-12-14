@@ -39,9 +39,6 @@ public class Start extends Application {
             bottomHbox.getChildren().addAll(toggleLabel, radioCoding, radioDecoding);
             root.setRight(bottomHbox);
 
-
-
-
             //============== Center
             Label label = new Label("Źródło:");
             label.setLayoutY(-25);
