@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.util.Optional;
 
-public class JavaFXHello extends Application {
+public class Start extends Application {
 
     public static void main(String[] args) {
         launch(args);
