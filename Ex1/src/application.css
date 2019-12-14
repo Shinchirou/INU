@@ -1,13 +1,13 @@
 .my-button {
     -fx-border-color: black;
-    -fx-pref-width: 70px;
+    -fx-pref-width: 100px;
     -fx-border-style: round;
 }
 
 
 .text-field {
     -fx-border-color: black;
-    -fx-pref-width: 200px;
+    -fx-pref-width: 230px;
 }
 
 
