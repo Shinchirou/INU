@@ -40,7 +40,9 @@ public class RLE {
 
 
         for(String s : dividedText){
-            int counter = Character.getNumericValue(s.charAt(1));
+
+                int counter = Integer.parseInt(s.substring(1, s.length()));
+
             for (int j = 0; j < counter; j++){
             sb.append(s.charAt(0));
             }
